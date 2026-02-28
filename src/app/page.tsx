@@ -387,7 +387,7 @@ export default function Home() {
     try {
       const res = await fetch(`/api/schedules/${userEmail}`);
       if (res.ok) setSchedules(await res.json());
-    } catch (e) { }
+    } catch { }
   };
 
   // Load email from localStorage on mount
@@ -456,7 +456,7 @@ export default function Home() {
     try {
       const res = await fetch(`/api/schedules/${id}`, { method: 'DELETE' });
       if (res.ok) fetchSchedules(email);
-    } catch (e) { }
+    } catch { }
   };
 
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
