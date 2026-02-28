@@ -3,9 +3,9 @@ import { ScheduleModel } from '@/lib/db';
 
 export async function GET(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const { id } = params;
+    const { id } = await params;
 
     // Simple heuristic: if it contains '@', it's an email lookup, otherwise it's a single schedule ID
     if (id.includes('@')) {
@@ -23,9 +23,9 @@ export async function GET(
 
 export async function DELETE(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const { id } = params;
+    const { id } = await params;
     const deleted = ScheduleModel.findByIdAndDelete(id);
 
     if (!deleted) {
