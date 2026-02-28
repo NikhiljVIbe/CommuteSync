@@ -8,16 +8,14 @@ export interface RouteDurationInfo {
     distanceKm?: number;
 }
 
-/**
- * Calls Google Maps Routes API for duration + route info at a specific departure time.
- */
 export const getTrafficDuration = async (
     originPlaceId: string,
     destinationPlaceId: string,
     departureTime: Date
 ): Promise<RouteDurationInfo | null> => {
     try {
-        const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+        // Use NEXT_PUBLIC if available, but for SSR it should be regular env
+        const apiKey = process.env.GOOGLE_MAPS_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
         if (!apiKey) throw new Error('GOOGLE_MAPS_API_KEY is not configured');
 
         const requestBody = {
@@ -44,7 +42,7 @@ export const getTrafficDuration = async (
         const routes = response.data.routes;
         if (routes && routes.length > 0) {
             const route = routes[0];
-            const durationSeconds = route.duration ? parseInt(route.duration, 10) : null;
+            const durationSeconds = route.duration ? parseInt(route.duration.replace('s', ''), 10) : null;
             const distanceMeters = route.distanceMeters || null;
 
             if (durationSeconds === null) return null;

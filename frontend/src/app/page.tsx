@@ -385,7 +385,7 @@ export default function Home() {
 
   const fetchSchedules = async (userEmail: string) => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/schedules/${userEmail}`);
+      const res = await fetch(`/api/schedules/${userEmail}`);
       if (res.ok) setSchedules(await res.json());
     } catch (e) { }
   };
@@ -420,7 +420,7 @@ export default function Home() {
     }
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/schedules`, {
+      const res = await fetch(`/api/schedules`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, source, destination, days, usualStartTime }),
@@ -436,7 +436,7 @@ export default function Home() {
 
       // Trigger immediate analysis in the background
       try {
-        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/schedules/${saved._id}/trigger`, {
+        await fetch(`/api/schedules/${saved._id}/trigger`, {
           method: 'POST',
         });
         // Refetch to show the "Email sent" badge
@@ -454,7 +454,7 @@ export default function Home() {
 
   const deleteSchedule = async (id: string) => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/schedules/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/schedules/${id}`, { method: 'DELETE' });
       if (res.ok) fetchSchedules(email);
     } catch (e) { }
   };

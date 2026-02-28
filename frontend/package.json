@@ -11,9 +11,11 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@react-google-maps/api": "^2.20.8",
-    "axios": "^1.13.5",
+    "@types/nodemailer": "^7.0.11",
+    "axios": "^1.13.6",
     "date-fns": "^4.1.0",
     "next": "16.1.6",
+    "nodemailer": "^8.0.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
