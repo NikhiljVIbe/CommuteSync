@@ -1,41 +1,36 @@
-# CommuteSync 🚗💨
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-CommuteSync is a smart traffic notification system that analyzes real-time traffic data to help you time your departure perfectly. It monitors your commute and sends you an email alert 15 minutes before either your usual start time or the optimal departure window—whichever comes first.
+## Getting Started
 
-## Features ✨
+First, run the development server:
 
-- **Smart Analysis**: Scans traffic patterns -1 to +3 hours around your commute time.
-- **Dynamic Alerts**: Sends emails via Nodemailer when it's time to leave.
-- **Interactive UI**: 
-  - Collapsible sidebar and map for focused planning.
-  - Custom Time Picker with scroll and manual entry support.
-  - Real-time Google Maps integration.
-- **Reliable Backend**: Robust cron service running with 1-minute precision.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Tech Stack 🛠️
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **Frontend**: Next.js, React, Google Maps API, Glassmorphism UI.
-- **Backend**: Node.js, Express, node-cron, Nodemailer.
-- **Database**: Local JSON storage for efficient, low-overhead scheduling.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Getting Started 🚀
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/NikhiljVIbe/CommuteSync.git
-   ```
+## Learn More
 
-2. **Setup Backend**:
-   - `cd backend`
-   - `npm install`
-   - Create a `.env` file with your `GOOGLE_MAPS_API_KEY`, `EMAIL_USER`, and `EMAIL_PASS`.
-   - `npm run dev`
+To learn more about Next.js, take a look at the following resources:
 
-3. **Setup Frontend**:
-   - `cd frontend`
-   - `npm install`
-   - Create a `.env.local` file with `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` and `NEXT_PUBLIC_API_URL`.
-   - `npm run dev`
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## License 📄
-MIT
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
